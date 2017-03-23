@@ -1,3 +1,42 @@
+var morgan = require('morgan');
+var path = require('path');
+app.use(morgan('combined'));
+var express=require('express');
+var app=express();
+
+var Pool=require('pg').Pool;
+
+var config={
+    user:'preethiannjacob',
+    database:'preethiannjacob',
+    host:'db.imad.hasura-app.io',
+    port:'5432',
+    password:process.env.DB_PASSWORD
+};
+
+app.use(express.static('ui'));
+app.get('/',function(req,res){
+	res.sendFile(__dirname + '/ui/index.html');
+});
+
+
+/* one way of including css
+app.get('/css/style.css',function(req,res){
+	res.sendFile(__dirname + '/css/style.css');
+});*/
+
+var pool = new Pool(config);
+app.get('/test-db',function(req,res){
+    //make a select request
+    //return a response with the results
+    
+});
+
+app.listen(8080,function(){
+	console.log('app is listening on 8080 !');
+});
+
+/*Old code
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
@@ -116,4 +155,4 @@ app.get('/ui/madi.png', function (req, res) {
 
 app.listen(8080, function () {
   console.log(`IMAD course app listening on port ${port}!`);
-});
+});*/
