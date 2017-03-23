@@ -40,8 +40,8 @@ app.get('/test-db',function(req,res){
     
 });
 
-app.listen(8080, function () {
-  console.log(`IMAD course app listening on port ${port}!`);
+app.listen(8080,function(){
+	console.log('app is listening on 8080 !');
 });
 
 /*Old code
