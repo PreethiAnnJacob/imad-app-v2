@@ -37,6 +37,8 @@ app.get('/test-db',function(req,res){
             res.send(JSON.stringify(result));
         }
     });
+    
+});
 
 app.listen(8080, function () {
   console.log(`IMAD course app listening on port ${port}!`);
