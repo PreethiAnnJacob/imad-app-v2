@@ -11,7 +11,7 @@ var config={
     database:'preethiannjacob',
     host:'db.imad.hasura-app.io',
     port:'5432',
-    password:process.env.DB_PASSWORD
+    password:process.env.DB_PASSWORD //create environment variable
 };
 
 app.use(express.static('ui'));
