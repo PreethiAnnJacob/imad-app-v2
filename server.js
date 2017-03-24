@@ -130,7 +130,7 @@ function createTemplate(data){
 	//articleName==article-one
 	//article(articleName={} content object for article-one
 	
-     // SELECT * FROM articles WHERE title='article-one'
+     // SELECT * FROM articles WHERE title='';DELETE WHERE a='asdf'   ---> This will comment explains that it can delete contents of database by SQL Injection
 	pool.query("SELECT * FROM article WHERE title='" + req.params.articleName + "'", function(err,result){
 	    if(err){
 	        res.status(500).send(err.toString());  //Status error
