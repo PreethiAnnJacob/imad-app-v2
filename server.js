@@ -38,7 +38,31 @@ app.get('/test-db',function(req,res){
         }
     });
     
-});
+    //counter code
+ var counter=0;
+ app.get('/counter',function(req,res){
+  counter=counter+1;
+  res.send(counter.toString());
+ });
+
+ var names=[];
+ app.get('/submit-name',function(req,res){
+    //Get the name from the request
+    var name=req.query.name;
+    
+    names.push(name);
+    //JSON: Javascript Object Notation
+    res.send(JSON.stringify(names));
+  });
+
+  app.get('/:articleName', function(req,res){
+	//articleName==article-one
+	//article(articleName={} content object for article-one
+	var articleName=req.params.articleName;
+	res.send(createTemplate(articles[articleName]));
+   });
+
+ });
 
 app.listen(8080,function(){
 	console.log('app is listening on 8080 !');
