@@ -76,16 +76,17 @@ function createTemplate(data){
 
 }
 
-  function hash(input){
-     //How do we create a hash?
-    var hashed=crypto.pbkdf2Sync();
+ function hash(input,salt){
+    //How do we create a hash?
+    var hashed=crypto.pbkdf2Sync(input,salt,10000,512,'sha512');
+    return hashed;
+    
+}
 
-
-  }
-  
-  app.get('/hash/:input',function(req,res){
-     res.sendFile(path.join(__dirname,'ui','index.html'));
- });
+app.get('/hash/:input',function(req,res){
+    var hashed=crypto.pbkdf2Sync(req.params.input,salt);
+    res.send(hashedString);
+});
  
     //counter code
  var counter=0;
