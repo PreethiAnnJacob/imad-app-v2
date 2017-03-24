@@ -64,7 +64,7 @@ app.get('/test-db',function(req,res){
 	        res.status(500).send(err.toString());  //Status error
 	    }
 	    else{
-	         if(result.rows.length==0){
+	         if(result.rows.length===0){
 	             res.status(404).send('Article not found');   //status not found
 	         }
 	         else{
@@ -75,8 +75,6 @@ app.get('/test-db',function(req,res){
 	
 	res.send(createTemplate(articleData));
    });
-
- });
 
 
  });
