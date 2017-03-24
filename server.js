@@ -55,14 +55,15 @@ app.get('/test-db',function(req,res){
     res.send(JSON.stringify(names));
   });
 
-   app.get('articles/:articleName', function(req,res){
+    app.get('articles/:articleName', function(req,res){
 	//articleName==article-one
 	//article(articleName={} content object for article-one
-	var articleName=req.params.articleName;
 	
-	pool.query("SELECT * FROM article WHERE title='article-one'")
+	pool.query("SELECT * FROM article WHERE title=" +req.params.articleName)
 	res.send(createTemplate(articleData));
    });
+
+ });
 
 
  });
