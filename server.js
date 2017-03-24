@@ -92,6 +92,7 @@ function createTemplate(data){
     res.send(JSON.stringify(names));
   });
 
+//articles in a dynamic format
   app.get('articles/:articleName', function(req,res){
 	//articleName==article-one
 	//article(articleName={} content object for article-one
