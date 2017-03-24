@@ -38,6 +38,77 @@ app.get('/test-db',function(req,res){
         }
     });
 });   
+
+var articles={ 
+   			'article-one':{
+				title:"Article One | Preethi Ann Jacob",
+				heading:'Article One',
+				date:'Sep 5, 2016',
+				content:`
+				         <p>
+  							This is the content of my first article. This is the content of my first article. This is the content of my first article. This is the content of my first article.
+  						</p>
+  						<p>
+  							This is the content of my first article. This is the content of my first article. This is the content of my first article. This is the content of my first article.
+  					   </p>
+  					   <p>
+  							This is the content of my first article. This is the content of my first article. This is the content of my first article. This is the content of my first article.
+  					   </p>`
+			},
+			'article-two':{
+				title:'Article Two | Preethi Ann Jacob',
+				heading:'Article Two',
+				date: 'Feb 5, 2017',
+				content: `
+				    <p>
+  							This is the content of my second article. This is the content of my first article. This is the content of my first article. This is the content of my first article.
+  					</p> `
+			},
+			'article-three':{
+				title:'Article Three | Preethi Ann Jacob',
+				heading:'Article Three',
+				date: 'Feb 15, 2017',
+				content: `
+				    <p>
+  							This is the content of my third article. This is the content of my first article. This is the content of my first article. This is the content of my first article.
+  					</p> `
+			}
+ };
+function createTemplate(data){
+	var title=data.title;
+	var date=data.date;
+	var heading=data.heading;
+	var content=data.content;
+
+	var htmlTemplate=`
+	<html>
+  	<head>
+  	<title>
+  		${title}
+  	</title>
+  	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+  	</head>
+  	<body>
+  		<div>
+  			<a href="/">Home</a>
+  		</div>
+  		<hr/>
+  		<h3>
+  			${heading}
+  		</h3>
+  		<div> 
+  			${date}
+  		</div>
+  		<div>
+  			${content}
+  		</div>
+  	</body>
+	</html>
+  `; 
+  return htmlTemplate;
+
+}
+
     //counter code
  var counter=0;
  app.get('/counter',function(req,res){
@@ -78,11 +149,13 @@ app.get('/test-db',function(req,res){
 });
   
 
-
-
 app.listen(8080,function(){
 	console.log('app is listening on 8080 !');
 });
+
+
+
+
 
 /*Old code
 var express = require('express');
