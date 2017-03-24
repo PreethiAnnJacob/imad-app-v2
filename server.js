@@ -76,10 +76,9 @@ app.get('/test-db',function(req,res){
 	});
 	
 
-   });
+  
 
 
- });
 
 app.listen(8080,function(){
 	console.log('app is listening on 8080 !');
