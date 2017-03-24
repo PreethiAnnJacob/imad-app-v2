@@ -97,7 +97,7 @@ function createTemplate(data){
   			${heading}
   		</h3>
   		<div> 
-  			${date.toDareString()}
+  			${date.toDateString()}
   		</div>
   		<div>
   			${content}
