@@ -132,7 +132,7 @@ function createTemplate(data){
 	
      // SELECT * FROM articles WHERE title='';DELETE WHERE a='asdf'   ---> This will comment explains that it can delete contents of database by SQL Injection
      //Best way to resolve this problem by using command SELECT * FROM articles WHERE title='\';DELETE WHERE a='\asdf'
-	pool.query("SELECT * FROM article WHERE title='" + req.params.articleName + "'", function(err,result){
+	pool.query("SELECT * FROM article WHERE title=$1" + req.params.articleName + "'", function(err,result){
 	    if(err){
 	        res.status(500).send(err.toString());  //Status error
 	    }
