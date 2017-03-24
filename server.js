@@ -84,7 +84,7 @@ function createTemplate(data){
 }
 
 app.get('/hash/:input',function(req,res){
-    var hashed=crypto.pbkdf2Sync(req.params.input,salt);
+    var hashed=crypto.pbkdf2Sync(req.params.input,'this-is-some-random-string');
     res.send(hashedString);
 });
  
